@@ -199,6 +199,11 @@ lemma nonneg_divide_by_two {a : ℤ} (h : 0 ≤ 2 *a) : 0 ≤ a := by
   have _ : 2 * a < 0 := by linarith
   linarith
 
+
+lemma norm_half_pos {a : ℤ} (h : 0 ≤ a) : 0 ≤ a / 2 := by
+  refine Int.le_ediv_of_mul_le ?H1 h
+  norm_num
+
 @[simp]
 theorem norm_nonneg (x : eisensteinInt) : 0 ≤ norm x := by
   have h : 2 * norm x = (x.re+x.im)^2 + x.re^2 + x.im^2 := by
@@ -286,32 +291,60 @@ theorem mod_def (x y : eisensteinInt) : x % y = x - y * (x / y) :=
 theorem norm_mod_lt (x : eisensteinInt) {y : eisensteinInt} (hy : y ≠ 0) :
     (x % y).norm < y.norm := by
   have norm_y_pos : 0 < norm y := by rwa [norm_pos]
+  have h : 4 * (Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)) * (Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y))
+                     ≤ 4 * |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)| * |Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)| := by
+    · calc
+        _ ≤ |4 * Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y) * Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)| := by
+            apply le_abs_self
+        _ = 4 * |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y) * Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)| := by
+            simp [abs_mul]; rw [← mul_assoc]; norm_num
+        _ = 4 * |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)| * |Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)| := by
+            simp [abs_mul]; rw [← mul_assoc]
+  have HH₁ : |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)| ≤ (y.norm / 2) := by
+            apply Int.abs_mod'_le; apply norm_y_pos
+  have HH₂ : |Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)| ≤ (y.norm / 2) := by
+            apply Int.abs_mod'_le; apply norm_y_pos
+  have HH₃ : |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)| * |Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)|
+             ≤ ((y.norm / 2) ^ 2) := by
+    rw [pow_two]
+    apply mul_le_mul
+    apply HH₁; apply HH₂
+    apply abs_nonneg
+    apply norm_half_pos; apply le_of_lt; apply norm_y_pos
+  have h'' : norm y / 2 * 2 ≤ norm y := by apply Int.ediv_mul_le; norm_num
   have H1 : x % y * conj y = ⟨Int.mod' (x * conj y).re (norm y), Int.mod' (x * conj y).im (norm y)⟩
   · ext <;> simp [Int.mod'_eq, mod_def, div_def, norm] <;> ring
   have H2 : 4 * norm (x % y) * norm y ≤ 3 * norm y * norm y
   · calc
-      4 * (norm (x % y) * norm y) = 4 * norm (x % y * conj y) := by simp only [norm_mul, norm_conj]
+      _ = 4 * norm (x % y * conj y) := by
+          simp only [norm_mul, norm_conj]; rw [← mul_assoc]
       _ = 4 * |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)| ^ 2
           + 4 * |Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)| ^ 2
-          + 4 * (Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)) * (Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)):= by
+          + 4 * (Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)) * (Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y))
+          := by
           simp [H1, norm, sq_abs]
           ring_nf
+      _ ≤ 4 * |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)| ^ 2
+          + 4 * |Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)| ^ 2
+          + 4 * |Int.mod' (x.re * y.re + x.im * y.im + x.re * y.im) (norm y)| * |Int.mod' (-(x.re * y.im) + x.im * y.re) (norm y)|
+          := by
+          gcongr ?_ + ?_ + ?_
+          rfl; rfl
       _ ≤ 4 * ((y.norm / 2) ^ 2) + 4 * ((y.norm / 2) ^ 2) + 4 * ((y.norm / 2) ^ 2):= by
-        gcongr ?_ + ?_ + ?_
-        gcongr <;> apply Int.abs_mod'_le _ _ norm_y_pos
-        sorry
+          gcongr ?_ + ?_ + ?_
+          gcongr <;> apply HH₁
+          gcongr <;> apply HH₂
+          rw [mul_assoc]; gcongr <;> apply mul_le_mul
+      _ = 3 * (norm y / 2 * 2) * (norm y / 2 * 2) := by ring
       _ ≤ 3 * norm y * norm y := by
-          have h'' : (norm y / 2) * 4 ≤ norm y  := by
-            simp only [norm, div_def, norm_mul, norm_conj]
-            ring_nf
-            apply Int.ediv_mul_le
-            sorry
+          gcongr ?_ * ?_ * ?_; norm_num
+  have H : 4 * norm (x % y) < 4 * norm y
+  · calc 4 * norm (x % y) ≤ 3 * norm y := le_of_mul_le_mul_right H2 norm_y_pos
+      _ < 4 * norm y := by  linarith
+  linarith
       -----apply Int.ediv_lt_of_lt_mul
       ----simp [div_def, norm]; ring ;
-  calc norm (x % y) < norm y := by
-        apply Int.ediv_lt_of_lt_mul
-        · norm_num
-        · linarith
+
 
 theorem coe_natAbs_norm (x : eisensteinInt) : (x.norm.natAbs : ℤ) = x.norm :=
   Int.natAbs_of_nonneg (norm_nonneg _)
@@ -354,13 +387,13 @@ noncomputable section
 def fq:ℚ[X]:=(X^2+C 3)
 
 
-structure K_eq_eisenstein (K : Type u_7) (eisensteinInt : Type u_8) [Mul K] [Mul eisensteinInt] [Add K] [Add eisensteinInt] extends Equiv :
+structure K_eq_eisenstein (NumberField.ringOfIntegers K : Type u_7) (eisensteinInt : Type u_8) [Mul NumberField.ringOfIntegers K] [Mul eisensteinInt] [Add K] [Add eisensteinInt] extends Equiv :
   Type (max u_7 u_8)
-toFun : K → eisensteinInt :=
-  fun (x : K) =>
+toFun : NumberField.ringOfIntegers K → eisensteinInt :=
+  fun (x : NumberField.ringOfIntegers K =>
   have ⟨ α , β , h⟩  :=K_basis_sum X
   ⟨⟨α - β , 2 * β ⟩⟩
-invFun : eisensteinInt → K :=
+invFun : eisensteinInt → NumberField.ringOfIntegers K :=
   fun (x : eisensteinInt) => (x.re : Q) + (x.im : Q) / 2 + ( (x.im : Q) / 2 ) * AdjointRoot.root fq
 left_inv : Function.LeftInverse self.invFun self.toFun
 right_inv : Function.RightInverse self.invFun self.toFun
@@ -371,4 +404,4 @@ map_add' : ∀ (x y : K), Equiv.toFun self.toEquiv (x + y) = Equiv.toFun self.to
   intros
   ext <;> simp <;> ring
 
-instance : IsPrincipalIdealRing K := inferInstance ---OK?
+instance : IsPrincipalIdealRing (NumberField.ringOfIntegers K) := inferInstance ---OK?
