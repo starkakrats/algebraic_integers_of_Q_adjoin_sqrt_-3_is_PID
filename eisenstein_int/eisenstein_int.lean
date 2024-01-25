@@ -1,7 +1,3 @@
-import Mathlib.Data.Int.Basic
-import Mathlib.Algebra.EuclideanDomain.Basic
-import Mathlib.RingTheory.PrincipalIdealDomain
-import Mathlib.Tactic.GCongr
 import Mathlib
 --import other .lean file
 
