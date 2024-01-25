@@ -1,0 +1,1048 @@
+<html lang="en"><head><meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta><link rel="stylesheet" href="../.././style.css"></link><link rel="stylesheet" href="../.././src/pygments.css"></link><link rel="shortcut icon" href="../.././favicon.ico"></link><link rel="prefetch" href="../.././/declarations/declaration-data.bmp" as="image"></link><title>Mathlib.RingTheory.Etale</title><script defer="true" src="../.././mathjax-config.js"></script><script defer="true" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script defer="true" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>const SITE_ROOT="../.././";</script><script>const MODULE_NAME="Mathlib.RingTheory.Etale";</script><script type="module" src="../.././jump-src.js"></script><script type="module" src="../.././search.js"></script><script type="module" src="../.././expand-nav.js"></script><script type="module" src="../.././how-about.js"></script><script type="module" src="../.././instances.js"></script><script type="module" src="../.././importedBy.js"></script></head><body><input id="nav_toggle" type="checkbox"></input><header><h1><label for="nav_toggle"></label><span>Documentation</span></h1><h2 class="header_filename break_within"><span class="name">Mathlib</span>.<span class="name">RingTheory</span>.<span class="name">Etale</span></h2><form action="https://google.com/search" method="get" id="search_form"><input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib4_docs"></input><input type="text" name="q" autocomplete="off"></input>&#32;
+            <button id="search_button" onclick="javascript: form.action='../.././search.html';">Search</button><button>Google site search</button></form></header><nav class="internal_nav"><p><a href="#top">return to top</a></p><p class="gh_nav_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean">source</a></p><div class="imports"><details><summary>Imports</summary><ul><li><a href="../.././Init.html">Init</a></li><li><a href="../.././Mathlib/RingTheory/Kaehler.html">Mathlib.RingTheory.Kaehler</a></li><li><a href="../.././Mathlib/RingTheory/QuotientNilpotent.html">Mathlib.RingTheory.QuotientNilpotent</a></li></ul></details><details><summary>Imported by</summary><ul id="imported-by-Mathlib.RingTheory.Etale" class="imported-by-list"></ul></details></div><div class="nav_link"><a class="break_within" href="#Algebra.formallyUnramified_iff"><span class="name">Algebra</span>.<span class="name">formallyUnramified_iff</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.formallySmooth_iff"><span class="name">Algebra</span>.<span class="name">formallySmooth_iff</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.formallyEtale_iff"><span class="name">Algebra</span>.<span class="name">formallyEtale_iff</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.iff_unramified_and_smooth"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">iff_unramified_and_smooth</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.to_unramified"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">to_unramified</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.to_smooth"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">to_smooth</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.of_unramified_and_smooth"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">of_unramified_and_smooth</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.lift_unique"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">lift_unique</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.ext"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">ext</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.lift_unique_of_ringHom"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">lift_unique_of_ringHom</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.ext'"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">ext'</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.lift_unique'"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">lift_unique'</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.exists_lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">exists_lift</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">lift</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.comp_lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">comp_lift</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.mk_lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">mk_lift</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.liftOfSurjective"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">liftOfSurjective</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.liftOfSurjective_apply"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">liftOfSurjective_apply</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.comp_liftOfSurjective"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">comp_liftOfSurjective</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.of_equiv"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">of_equiv</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.of_equiv"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">of_equiv</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.of_equiv"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">of_equiv</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.mvPolynomial"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">mvPolynomial</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.polynomial"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">polynomial</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.comp"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">comp</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.comp"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">comp</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.of_comp"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">of_comp</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.comp"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">comp</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.of_split"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">of_split</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.iff_split_surjection"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">iff_split_surjection</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.subsingleton_kaehlerDifferential"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">subsingleton_kaehlerDifferential</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.iff_subsingleton_kaehlerDifferential"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">iff_subsingleton_kaehlerDifferential</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.base_change"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">base_change</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.base_change"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">base_change</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.base_change"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">base_change</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.of_isLocalization"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">of_isLocalization</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.of_isLocalization"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">of_isLocalization</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.of_isLocalization"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">of_isLocalization</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.localization_base"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">localization_base</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.localization_base"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">localization_base</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.localization_base"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">localization_base</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallySmooth.localization_map"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">localization_map</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyUnramified.localization_map"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">localization_map</span></a></div><div class="nav_link"><a class="break_within" href="#Algebra.FormallyEtale.localization_map"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">localization_map</span></a></div></nav><main>
+<div class="mod_doc"><h1 class="markdown-heading" id="Formally-étale-morphisms">Formally étale morphisms <a class="hover-link" href="#Formally-étale-morphisms">#</a></h1><p>An <code>R</code>-algebra <code>A</code> is formally étale (resp. unramified, smooth) if for every <code>R</code>-algebra,
+every square-zero ideal <code>I : <a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> B</code> and <code>f : A →ₐ[R] B ⧸ I</code>, there exists
+exactly (resp. at most, at least) one lift <code>A →ₐ[R] B</code>.</p><p>We show that the property extends onto nilpotent ideals, and that these properties are stable
+under <code>R</code>-algebra homomorphisms and compositions.</p></div><div class="decl" id="Algebra.formallyUnramified_iff"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L42-L42">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.formallyUnramified_iff"><span class="name">Algebra</span>.<span class="name">formallyUnramified_iff</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span> <a href="../.././Init/Core.html#Iff">↔</a>   <span class="fn">∀ ⦃<span class="fn">B</span> : <a href="../.././foundational_types.html">Type</a> u⦄ [<span class="fn">inst</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>] [<span class="fn">inst_1</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>] (<span class="fn">I</span> : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>),
+    <span class="fn"><span class="fn"><span class="fn"><span class="fn">I</span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <a href="../.././Mathlib/Order/Notation.html#Bot.bot">⊥</a></span> → <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Injective">Function.Injective</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span></span>)</span></span></span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified"><div class="class"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L43-L47">source</a></div><div class="decl_header"><span class="decl_kind">class</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><a href="../.././foundational_types.html">Prop</a></div></div><p>An <code>R</code>-algebra <code>A</code> is formally unramified if for every <code>R</code>-algebra, every square-zero ideal
+<code>I : <a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> B</code> and <code>f : A →ₐ[R] B ⧸ I</code>, there exists at most one lift <code>A →ₐ[R] B</code>.</p><ul class="structure_fields" id="Algebra.FormallyUnramified.mk"><li id="Algebra.FormallyUnramified.comp_injective" class="structure_field"><div class="structure_field_info">comp_injective : <span class="fn">∀ ⦃<span class="fn">B</span> : <a href="../.././foundational_types.html">Type</a> u⦄ [<span class="fn">inst</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>] [<span class="fn">inst_1</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>] (<span class="fn">I</span> : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>),
+  <span class="fn"><span class="fn"><span class="fn"><span class="fn">I</span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <a href="../.././Mathlib/Order/Notation.html#Bot.bot">⊥</a></span> → <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Injective">Function.Injective</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span></span>)</span></span></span></span></div></li></ul><details class="instances"><summary>Instances</summary><ul id="instances-list-Algebra.FormallyUnramified" class="instances-list"></ul></details></div></div><div class="decl" id="Algebra.formallySmooth_iff"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L52-L52">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.formallySmooth_iff"><span class="name">Algebra</span>.<span class="name">formallySmooth_iff</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span> <a href="../.././Init/Core.html#Iff">↔</a>   <span class="fn">∀ ⦃<span class="fn">B</span> : <a href="../.././foundational_types.html">Type</a> u⦄ [<span class="fn">inst</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>] [<span class="fn">inst_1</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>] (<span class="fn">I</span> : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>),
+    <span class="fn"><span class="fn"><span class="fn"><span class="fn">I</span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <a href="../.././Mathlib/Order/Notation.html#Bot.bot">⊥</a></span> → <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Surjective">Function.Surjective</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span></span>)</span></span></span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth"><div class="class"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L53-L57">source</a></div><div class="decl_header"><span class="decl_kind">class</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><a href="../.././foundational_types.html">Prop</a></div></div><p>An <code>R</code> algebra <code>A</code> is formally smooth if for every <code>R</code>-algebra, every square-zero ideal
+<code>I : <a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> B</code> and <code>f : A →ₐ[R] B ⧸ I</code>, there exists at least one lift <code>A →ₐ[R] B</code>.</p><ul class="structure_fields" id="Algebra.FormallySmooth.mk"><li id="Algebra.FormallySmooth.comp_surjective" class="structure_field"><div class="structure_field_info">comp_surjective : <span class="fn">∀ ⦃<span class="fn">B</span> : <a href="../.././foundational_types.html">Type</a> u⦄ [<span class="fn">inst</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>] [<span class="fn">inst_1</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>] (<span class="fn">I</span> : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>),
+  <span class="fn"><span class="fn"><span class="fn"><span class="fn">I</span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <a href="../.././Mathlib/Order/Notation.html#Bot.bot">⊥</a></span> → <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Surjective">Function.Surjective</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span></span>)</span></span></span></span></div></li></ul><details class="instances"><summary>Instances</summary><ul id="instances-list-Algebra.FormallySmooth" class="instances-list"></ul></details></div></div><div class="decl" id="Algebra.formallyEtale_iff"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L62-L62">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.formallyEtale_iff"><span class="name">Algebra</span>.<span class="name">formallyEtale_iff</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span> <a href="../.././Init/Core.html#Iff">↔</a>   <span class="fn">∀ ⦃<span class="fn">B</span> : <a href="../.././foundational_types.html">Type</a> u⦄ [<span class="fn">inst</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>] [<span class="fn">inst_1</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>] (<span class="fn">I</span> : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>),
+    <span class="fn"><span class="fn"><span class="fn"><span class="fn">I</span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <a href="../.././Mathlib/Order/Notation.html#Bot.bot">⊥</a></span> → <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Bijective">Function.Bijective</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span></span>)</span></span></span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallyEtale"><div class="class"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L63-L67">source</a></div><div class="decl_header"><span class="decl_kind">class</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><a href="../.././foundational_types.html">Prop</a></div></div><p>An <code>R</code> algebra <code>A</code> is formally étale if for every <code>R</code>-algebra, every square-zero ideal
+<code>I : <a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> B</code> and <code>f : A →ₐ[R] B ⧸ I</code>, there exists exactly one lift <code>A →ₐ[R] B</code>.</p><ul class="structure_fields" id="Algebra.FormallyEtale.mk"><li id="Algebra.FormallyEtale.comp_bijective" class="structure_field"><div class="structure_field_info">comp_bijective : <span class="fn">∀ ⦃<span class="fn">B</span> : <a href="../.././foundational_types.html">Type</a> u⦄ [<span class="fn">inst</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>] [<span class="fn">inst_1</span> : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>] (<span class="fn">I</span> : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>),
+  <span class="fn"><span class="fn"><span class="fn"><span class="fn">I</span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <a href="../.././Mathlib/Order/Notation.html#Bot.bot">⊥</a></span> → <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Bijective">Function.Bijective</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span></span>)</span></span></span></span></div></li></ul><details class="instances"><summary>Instances</summary><ul id="instances-list-Algebra.FormallyEtale" class="instances-list"></ul></details></div></div><div class="decl" id="Algebra.FormallyEtale.iff_unramified_and_smooth"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L72-L75">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.iff_unramified_and_smooth"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">iff_unramified_and_smooth</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span> <a href="../.././Init/Core.html#Iff">↔</a> <span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span> <a href="../.././Init/Prelude.html#And">∧</a> <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallyEtale.to_unramified"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L78-L80">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.to_unramified"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">to_unramified</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[h : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallyEtale.to_smooth"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L83-L84">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.to_smooth"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">to_smooth</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[h : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallyEtale.of_unramified_and_smooth"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L87-L89">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.of_unramified_and_smooth"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">of_unramified_and_smooth</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[h₁ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[h₂ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.lift_unique"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L92-L106">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.lift_unique"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">lift_unique</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[_RB : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(I : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hI : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">I</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₁ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₂ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span> <span class="fn">g₁</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span> <span class="fn">g₂</span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn">g₁</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g₂</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.ext"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L109-L111">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.ext"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">ext</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(I : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(hI : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">I</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">{g₁ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{g₂ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>}</span></span>
+</span><span class="decl_args">
+<span class="fn">(H : <span class="fn">∀ (<span class="fn">x</span> : <span class="fn">A</span>), <span class="fn"><span class="fn"><span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Quotient.html#Ideal.Quotient.mk">Ideal.Quotient.mk</a> <span class="fn">I</span></span>)</span> <span class="fn">(<span class="fn"><span class="fn">g₁</span> <span class="fn">x</span></span>)</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Quotient.html#Ideal.Quotient.mk">Ideal.Quotient.mk</a> <span class="fn">I</span></span>)</span> <span class="fn">(<span class="fn"><span class="fn">g₂</span> <span class="fn">x</span></span>)</span></span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn">g₁</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g₂</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.lift_unique_of_ringHom"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L114-L122">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.lift_unique_of_ringHom"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">lift_unique_of_ringHom</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{C : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">C</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Ring/Hom/Defs.html#RingHom">→+*</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hf : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">f</span></span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₁ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₂ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Ring/Hom/Defs.html#RingHom.comp">RingHom.comp</a> <span class="fn">f</span> <span class="fn">↑<span class="fn">g₁</span></span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><a href="../.././Mathlib/Algebra/Ring/Hom/Defs.html#RingHom.comp">RingHom.comp</a> <span class="fn">f</span> <span class="fn">↑<span class="fn">g₂</span></span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn">g₁</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g₂</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.ext'"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L125-L128">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.ext'"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">ext'</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{C : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">C</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Ring/Hom/Defs.html#RingHom">→+*</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hf : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">f</span></span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₁ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₂ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn">∀ (<span class="fn">x</span> : <span class="fn">A</span>), <span class="fn"><span class="fn"><span class="fn">f</span> <span class="fn">(<span class="fn"><span class="fn">g₁</span> <span class="fn">x</span></span>)</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">f</span> <span class="fn">(<span class="fn"><span class="fn">g₂</span> <span class="fn">x</span></span>)</span></span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn">g₁</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g₂</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.lift_unique'"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L131-L134">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.lift_unique'"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">lift_unique'</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{C : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">C</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">C</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hf : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">↑<span class="fn">f</span></span></span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₁ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g₂ : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">f</span> <span class="fn">g₁</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">f</span> <span class="fn">g₂</span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn">g₁</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g₂</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.exists_lift"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L137-L157">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.exists_lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">exists_lift</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[_RB : <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(I : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hI : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">I</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Quotient.html#HasQuotient.Quotient">⧸</a> <span class="fn">I</span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn">∃ (f : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>), <span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span> <span class="fn">f</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g</span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.lift"><div class="def"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L162-L164">source</a></div><div class="decl_header"><span class="decl_kind">noncomputable def</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">lift</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(I : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hI : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">I</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Quotient.html#HasQuotient.Quotient">⧸</a> <span class="fn">I</span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span></div></div><p>For a formally smooth <code>R</code>-algebra <code>A</code> and a map <code>f : A →ₐ[R] B ⧸ I</code> with <code>I</code> square-zero,
+this is an arbitrary lift <code>A →ₐ[R] B</code>.</p><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.lift">Algebra.FormallySmooth.lift</a> <span class="fn">I</span> <span class="fn">hI</span> <span class="fn">g</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><a href="../.././Std/Logic.html#Exists.choose">Exists.choose</a> <span class="fn">(_ : <span class="fn">∃ (f : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span>), <span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span> <span class="fn">f</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g</span></span></span>)</span></span></span></li></ul></details><details id="instances-for-list-Algebra.FormallySmooth.lift" class="instances-for-list"><summary>Instances For</summary><ul class="instances-for-enum"></ul></details></div></div><div class="decl" id="Algebra.FormallySmooth.comp_lift"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L168-L170">source</a></div><div class="attributes">@[simp]</div>
+<div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.comp_lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">comp_lift</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(I : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hI : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">I</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Quotient.html#HasQuotient.Quotient">⧸</a> <span class="fn">I</span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.Quotient.mkₐ">Ideal.Quotient.mkₐ</a> <span class="fn">R</span> <span class="fn">I</span></span>)</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.lift">Algebra.FormallySmooth.lift</a> <span class="fn">I</span> <span class="fn">hI</span> <span class="fn">g</span></span>)</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">g</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.mk_lift"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L174-L176">source</a></div><div class="attributes">@[simp]</div>
+<div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.mk_lift"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">mk_lift</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(I : <span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Basic.html#Ideal">Ideal</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hI : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">I</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Quotient.html#HasQuotient.Quotient">⧸</a> <span class="fn">I</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn">A</span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Quotient.html#Ideal.Quotient.mk">Ideal.Quotient.mk</a> <span class="fn">I</span></span>)</span> <span class="fn">(<span class="fn"><span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.lift">Algebra.FormallySmooth.lift</a> <span class="fn">I</span> <span class="fn">hI</span> <span class="fn">g</span></span>)</span> <span class="fn">x</span></span>)</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">g</span> <span class="fn">x</span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.liftOfSurjective"><div class="def"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L183-L186">source</a></div><div class="decl_header"><span class="decl_kind">noncomputable def</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.liftOfSurjective"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">liftOfSurjective</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{C : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">C</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">C</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hg : <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Surjective">Function.Surjective</a> <span class="fn">⇑<span class="fn">g</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hg' : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">↑<span class="fn">g</span></span></span>)</span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">B</span></span></div></div><p>For a formally smooth <code>R</code>-algebra <code>A</code> and a map <code>f : A →ₐ[R] B ⧸ I</code> with <code>I</code> nilpotent,
+this is an arbitrary lift <code>A →ₐ[R] B</code>.</p><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.liftOfSurjective">Algebra.FormallySmooth.liftOfSurjective</a> <span class="fn">f</span> <span class="fn">g</span> <span class="fn">hg</span> <span class="fn">hg'</span></span> <a href="../.././Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.lift">Algebra.FormallySmooth.lift</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">↑<span class="fn">g</span></span></span>)</span> <span class="fn">hg'</span>
+    <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn">↑<span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Equiv.html#AlgEquiv.symm">AlgEquiv.symm</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/QuotientOperations.html#Ideal.quotientKerAlgEquivOfSurjective">Ideal.quotientKerAlgEquivOfSurjective</a> <span class="fn">hg</span></span>)</span></span>)</span></span>)</span> <span class="fn">f</span></span>)</span></span></span></li></ul></details><details id="instances-for-list-Algebra.FormallySmooth.liftOfSurjective" class="instances-for-list"><summary>Instances For</summary><ul class="instances-for-enum"></ul></details></div></div><div class="decl" id="Algebra.FormallySmooth.liftOfSurjective_apply"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L190-L201">source</a></div><div class="attributes">@[simp]</div>
+<div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.liftOfSurjective_apply"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">liftOfSurjective_apply</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{C : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">C</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">C</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hg : <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Surjective">Function.Surjective</a> <span class="fn">⇑<span class="fn">g</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hg' : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">↑<span class="fn">g</span></span></span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn">A</span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><span class="fn">g</span> <span class="fn">(<span class="fn"><span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.liftOfSurjective">Algebra.FormallySmooth.liftOfSurjective</a> <span class="fn">f</span> <span class="fn">g</span> <span class="fn">hg</span> <span class="fn">hg'</span></span>)</span> <span class="fn">x</span></span>)</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">f</span> <span class="fn">x</span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.comp_liftOfSurjective"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L205-L208">source</a></div><div class="attributes">@[simp]</div>
+<div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.comp_liftOfSurjective"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">comp_liftOfSurjective</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{C : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">C</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">C</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">B</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">C</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hg : <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Surjective">Function.Surjective</a> <span class="fn">⇑<span class="fn">g</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hg' : <span class="fn"><a href="../.././Mathlib/RingTheory/Nilpotent.html#IsNilpotent">IsNilpotent</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">↑<span class="fn">g</span></span></span>)</span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">g</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.liftOfSurjective">Algebra.FormallySmooth.liftOfSurjective</a> <span class="fn">f</span> <span class="fn">g</span> <span class="fn">hg</span> <span class="fn">hg'</span></span>)</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">f</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.of_equiv"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L219-L224">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.of_equiv"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">of_equiv</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(e : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Equiv.html#AlgEquiv">≃ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Equiv.html#AlgEquiv">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">B</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.of_equiv"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L227-L234">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.of_equiv"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">of_equiv</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(e : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Equiv.html#AlgEquiv">≃ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Equiv.html#AlgEquiv">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">B</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyEtale.of_equiv"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L237-L239">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.of_equiv"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">of_equiv</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{B : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(e : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Equiv.html#AlgEquiv">≃ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Equiv.html#AlgEquiv">]</a> <span class="fn">B</span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">B</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.mvPolynomial"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L250-L259">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.mvPolynomial"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">mvPolynomial</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(σ : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Data/MvPolynomial/Basic.html#MvPolynomial">MvPolynomial</a> <span class="fn">σ</span> <span class="fn">R</span></span>)</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Data/MvPolynomial/Basic.html#MvPolynomial">MvPolynomial</a> <span class="fn">σ</span> <span class="fn">R</span></span>)</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Data/MvPolynomial/Basic.html#MvPolynomial">MvPolynomial</a> <span class="fn">σ</span> <span class="fn">R</span></span>)</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallySmooth.polynomial"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L262-L263">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.polynomial"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">polynomial</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Data/Polynomial/Basic.html#Polynomial">Polynomial</a> <span class="fn">R</span></span>)</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Data/Polynomial/Basic.html#Polynomial">Polynomial</a> <span class="fn">R</span></span>)</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Data/Polynomial/Basic.html#Polynomial">Polynomial</a> <span class="fn">R</span></span>)</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallySmooth.comp"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L276-L284">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.comp"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">comp</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(B : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">B</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.comp"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L287-L300">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.comp"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">comp</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(B : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">B</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.of_comp"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L303-L311">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.of_comp"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">of_comp</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(B : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">A</span> <span class="fn">B</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyEtale.comp"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L314-L316">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.comp"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">comp</span></a></span><span class="decl_args">
+<span class="fn">(R : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(A : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(B : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">A</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">B</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.of_split"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L329-L347">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.of_split"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">of_split</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{P : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">P</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">P</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">P</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">A</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">P</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(g : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn"><span class="fn">P</span> <a href="../.././Mathlib/Algebra/Quotient.html#HasQuotient.Quotient">⧸</a> <span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">↑<span class="fn">f</span></span></span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hg : <span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Cotangent.html#AlgHom.kerSquareLift">AlgHom.kerSquareLift</a> <span class="fn">f</span></span>)</span> <span class="fn">g</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.id">AlgHom.id</a> <span class="fn">R</span> <span class="fn">A</span></span></span>)</span></span>
+<span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.iff_split_surjection"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L355-L385">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.iff_split_surjection"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">iff_split_surjection</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{P : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">P</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">P</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">P</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn">A</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hf : <span class="fn"><a href="../.././Mathlib/Init/Function.html#Function.Surjective">Function.Surjective</a> <span class="fn">⇑<span class="fn">f</span></span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">P</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span> <a href="../.././Init/Core.html#Iff">↔</a>   <span class="fn">∃ (g : <span class="fn"><span class="fn">A</span> <a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">→ₐ[</a><span class="fn">R</span><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom">]</a> <span class="fn"><span class="fn">P</span> <a href="../.././Mathlib/Algebra/Quotient.html#HasQuotient.Quotient">⧸</a> <span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Operations.html#RingHom.ker">RingHom.ker</a> <span class="fn">↑<span class="fn">f</span></span></span> <a href="../.././Init/Prelude.html#HPow.hPow">^</a> <span class="fn">2</span></span></span></span>), <span class="fn"><span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.comp">AlgHom.comp</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Ideal/Cotangent.html#AlgHom.kerSquareLift">AlgHom.kerSquareLift</a> <span class="fn">f</span></span>)</span> <span class="fn">g</span></span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Hom.html#AlgHom.id">AlgHom.id</a> <span class="fn">R</span> <span class="fn">A</span></span></span></span></span></div></div><p>Let <code>P →ₐ[R] A</code> be a surjection with kernel <code>J</code>, and <code>P</code> a formally smooth <code>R</code>-algebra,
+then <code>A</code> is formally smooth over <code>R</code> iff the surjection <code>P ⧸ J ^ 2 →ₐ[R] A</code> has a section.</p><p>Geometric intuition: we require that a first-order thickening of <code>Spec A</code> inside <code>Spec P</code> admits
+a retraction.</p></div></div><div class="decl" id="Algebra.FormallyUnramified.subsingleton_kaehlerDifferential"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L396-L405">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.subsingleton_kaehlerDifferential"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">subsingleton_kaehlerDifferential</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{S : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Init/Core.html#Subsingleton">Subsingleton</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">Ω[</a><span class="fn">S</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">⁄</a><span class="fn">R</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">]</a></span>)</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Init/Core.html#Subsingleton">Subsingleton</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">Ω[</a><span class="fn">S</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">⁄</a><span class="fn">R</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">]</a></span>)</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Init/Core.html#Subsingleton">Subsingleton</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">Ω[</a><span class="fn">S</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">⁄</a><span class="fn">R</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">]</a></span>)</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallyUnramified.iff_subsingleton_kaehlerDifferential"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L408-L420">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.iff_subsingleton_kaehlerDifferential"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">iff_subsingleton_kaehlerDifferential</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{S : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">S</span></span> <a href="../.././Init/Core.html#Iff">↔</a> <span class="fn"><a href="../.././Init/Core.html#Subsingleton">Subsingleton</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">Ω[</a><span class="fn">S</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">⁄</a><span class="fn">R</span><a href="../.././Mathlib/RingTheory/Kaehler.html#KaehlerDifferential">]</a></span>)</span></span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.base_change"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L435-L443">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.base_change"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">base_change</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(B : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallySmooth.base_change"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L446-L457">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.base_change"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">base_change</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(B : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallyEtale.base_change"><div class="instance"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L460-L461">source</a></div><div class="decl_header"><span class="decl_kind">instance</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.base_change"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">base_change</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{A : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#Semiring">Semiring</a> <span class="fn">A</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(B : <a href="../.././foundational_types.html">Type</a> u)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommSemiring">CommSemiring</a> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">B</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">A</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span></div></div><details><summary>Equations</summary><ul class="equations"><li class="equation"><span class="fn"><span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span>)</span> <a href="../.././Init/Prelude.html#Eq">=</a> <span class="fn">(_ : <span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">B</span> <span class="fn">(<span class="fn"><a href="../.././Mathlib/LinearAlgebra/TensorProduct.html#TensorProduct">TensorProduct</a> <span class="fn">R</span> <span class="fn">B</span> <span class="fn">A</span></span>)</span></span>)</span></span></li></ul></details></div></div><div class="decl" id="Algebra.FormallySmooth.of_isLocalization"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L481-L495">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.of_isLocalization"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">of_isLocalization</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">M</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.of_isLocalization"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L499-L505">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.of_isLocalization"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">of_isLocalization</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">M</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span></div></div><p>This holds in general for epimorphisms.</p></div></div><div class="decl" id="Algebra.FormallyEtale.of_isLocalization"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L508-L510">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.of_isLocalization"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">of_isLocalization</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">M</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.localization_base"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L513-L532">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.localization_base"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">localization_base</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Sₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">M</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.localization_base"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L541-L544">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.localization_base"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">localization_base</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Sₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span></div></div><p>This actually does not need the localization instance, and is stated here again for
+consistency. See <code><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.of_comp">Algebra.FormallyUnramified.of_comp</a></code> instead.</p><p>The intended use is for copying proofs between <code>Formally{Unramified, Smooth, Etale}</code>
+without the need to change anything (including removing redundant arguments).</p></div></div><div class="decl" id="Algebra.FormallyEtale.localization_base"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L547-L549">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.localization_base"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">localization_base</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Sₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">M</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span></div></div></div></div><div class="decl" id="Algebra.FormallySmooth.localization_map"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L552-L555">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth.localization_map"><span class="name">Algebra</span>.<span class="name">FormallySmooth</span>.<span class="name">localization_map</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{S : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Sₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">S</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">S</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">M</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Operations.html#Submonoid.map">Submonoid.map</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#algebraMap">algebraMap</a> <span class="fn">R</span> <span class="fn">S</span></span>)</span> <span class="fn">M</span></span>)</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallySmooth">Algebra.FormallySmooth</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyUnramified.localization_map"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L558-L563">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified.localization_map"><span class="name">Algebra</span>.<span class="name">FormallyUnramified</span>.<span class="name">localization_map</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{S : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Sₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">S</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">S</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Operations.html#Submonoid.map">Submonoid.map</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#algebraMap">algebraMap</a> <span class="fn">R</span> <span class="fn">S</span></span>)</span> <span class="fn">M</span></span>)</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyUnramified">Algebra.FormallyUnramified</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span></div></div></div></div><div class="decl" id="Algebra.FormallyEtale.localization_map"><div class="theorem"><div class="gh_link"><a href="https://github.com/leanprover-community/mathlib4/blob/8c661e5492d1852ac9a417cfc675b6545d77c4b7/Mathlib/RingTheory/Etale.lean#L566-L569">source</a></div><div class="decl_header"><span class="decl_kind">theorem</span>
+<span class="decl_name"><a class="break_within" href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale.localization_map"><span class="name">Algebra</span>.<span class="name">FormallyEtale</span>.<span class="name">localization_map</span></a></span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{R : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{S : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Rₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">{Sₘ : <a href="../.././foundational_types.html">Type</a> u}</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">R</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Ring/Defs.html#CommRing">CommRing</a> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="decl_args">
+<span class="fn">(M : <span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Basic.html#Submonoid">Submonoid</a> <span class="fn">R</span></span>)</span></span>
+<span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">S</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">R</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#Algebra">Algebra</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/GroupTheory/GroupAction/Defs.html#IsScalarTower">IsScalarTower</a> <span class="fn">R</span> <span class="fn">S</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">M</span> <span class="fn">Rₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Localization/Basic.html#IsLocalization">IsLocalization</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/GroupTheory/Submonoid/Operations.html#Submonoid.map">Submonoid.map</a> <span class="fn">(<span class="fn"><a href="../.././Mathlib/Algebra/Algebra/Basic.html#algebraMap">algebraMap</a> <span class="fn">R</span> <span class="fn">S</span></span>)</span> <span class="fn">M</span></span>)</span> <span class="fn">Sₘ</span></span>]</span></span>
+</span><span class="impl_arg"><span class="decl_args">
+<span class="fn">[<span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">R</span> <span class="fn">S</span></span>]</span></span>
+</span><span class="decl_args"> :</span><div class="decl_type"><span class="fn"><a href="../.././Mathlib/RingTheory/Etale.html#Algebra.FormallyEtale">Algebra.FormallyEtale</a> <span class="fn">Rₘ</span> <span class="fn">Sₘ</span></span></div></div></div></div></main>
+<nav class="nav"><iframe src="../.././navbar.html" class="navframe" frameBorder="0"></iframe></nav></body></html>

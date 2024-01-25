@@ -1,0 +1,1 @@
+{"name":"Mathlib.Init.Data.Int.Lemmas","instances":[],"imports":["Init","Std.Data.Int.Order","Mathlib.Mathport.Rename"],"declarations":[]}
