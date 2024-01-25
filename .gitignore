@@ -1,0 +1,6 @@
+/build
+/.vscode
+/lake-packages
+.lake
+/.cache
+/lake-packages/*
