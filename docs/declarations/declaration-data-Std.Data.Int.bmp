@@ -1,1 +1,0 @@
-{"name":"Std.Data.Int","instances":[],"imports":["Init","Std.Data.Int.Basic","Std.Data.Int.DivMod","Std.Data.Int.Gcd","Std.Data.Int.Lemmas","Std.Data.Int.Order"],"declarations":[]}

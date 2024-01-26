@@ -1,1 +1,0 @@
-{"name":"Mathlib.Data.Fintype.Array","instances":[],"imports":["Init","Mathlib.Data.Fintype.Pi","Mathlib.Data.Fintype.Vector","Mathlib.Logic.Equiv.Array"],"declarations":[]}
